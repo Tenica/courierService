@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= pageTitle %></a>
+      </div>
+      <ul class="nav navbar-nav">
+      <% if (isAuthenticated) { %>
+        <li class="<%= path === '/dashboard' ? 'active' : '' %>"><a href="dashboard">Dashboard</a></li>
+        <li class="<%= path === '/AddTrack' ? 'active' : '' %>"><a href="AddTrack">Add Track</a></li>
+     <% } %>
+       
+        <!-- <li class="<%= path === '/Edit' ? 'active' : '' %>"><a href="Edit">Edit</a></li> -->
+
+        <% if (!isAuthenticated) { %>
+          <li class="<%= path === '/Login' ? 'hidden' : '' %>"><a href="Login">Login</a></li>
+
+      <% } %>
+      <form class="<%= path === '/Login' ? 'hidden' : '' %>" action="Logout" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit">Logout</button>
+      </form>
+      </ul>
+    </div>
+  </nav>
+
+  <style>
+    .hidden {
+    display: none
+}
+  </style>

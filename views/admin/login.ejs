@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/bootstrap/login-form-20/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Mar 2022 16:33:08 GMT -->
+
+<head>
+    <title><%= pageTitle %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/login-style.css">
+    <!--Favicon-->
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <script
+        nonce="decc435e-5ed5-4fa2-a871-2c41d8877876">(function (w, d) { !function (a, e, t, r, z) { a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zarazData.tracks = [], a.zaraz = { deferred: [] }; var s = e.getElementsByTagName("title")[0]; s && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a.dataLayer = a.dataLayer || [], a.zaraz.track = (e, t) => { for (key in a.zarazData.tracks.push(e), t) a.zarazData["z_" + key] = t[key] }, a.zaraz._preSet = [], a.zaraz.set = (e, t, r) => { a.zarazData["z_" + e] = t, a.zaraz._preSet.push([e, t, r]) }, a.dataLayer.push({ "zaraz.start": (new Date).getTime() }), a.addEventListener("DOMContentLoaded", (() => { var t = e.getElementsByTagName(r)[0], z = e.createElement(r); z.defer = !0, z.src = "../../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t) })) }(w, d, 0, "script"); })(window, document);</script>
+</head>
+<%- include('../includes/adminNav.ejs') %>
+<body class="img js-fullheight" style="background-image:url(/images/login.jpg)">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section"><%= pageTitle %></h2>
+                    <% if (errorMessage) { %>
+                        <div class="user-message user-message--error"><%= errorMessage %></div>
+                        <% } %>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+
+   
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Have an account?</h3>
+                        <form action="/admin/Login" method="POST" class="signin-form">
+                            <div class="form-group">
+                                <input 
+                            
+                                type="email" 
+                                name="email"
+                                 id="password" 
+                                 class = "form-control <%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
+                                 placeholder="Username" 
+                                 required>
+                            </div>
+                            <div class="form-group">
+                                <input id="password-field" 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                class = "form-control <%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>"
+                                placeholder="Password"
+                                    required>
+                                <span toggle="#password-field"
+                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <!-- <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">Remember Me
+                                        <input type="checkbox" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div> -->
+                                <div class="w-50 text-md-right">
+                                    <a href="/admin/register" style="color: #fff">Click to Sign Up</a>
+                                </div>
+                            </div>
+                        </form>
+                      
+                        <!-- <div class="social d-flex text-center">
+                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>
+                                Facebook</a>
+                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span>
+                                Twitter</a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.js"></script>
+  
+
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/bootstrap/login-form-20/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Mar 2022 16:33:12 GMT -->
+
+</html>

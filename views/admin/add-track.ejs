@@ -1,0 +1,124 @@
+
+
+
+
+<%- include('../includes/adminHead.ejs') %>
+
+<body style="height:1500px">
+
+  <%- include('../includes/adminNav.ejs') %>
+  
+  
+<div class="container" style="margin-top:50px">
+  <h3><%= pageTitle %></h3>
+  <div class="row">
+    <div class="col-md-12">
+        <form class="track-form" action="dashboard" method="POST">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Receivers Name</label>
+              <input type="text" class="form-control" name="receivers_name" id="receivers_name" aria-describedby="emailHelp" placeholder="Receivers Name">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Receivers Address</label>
+                <input type="text" class="form-control" name="receivers_address" id="receivers_address" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Receivers Country</label>
+                <input type="text" class="form-control" name="receivers_country" id="receivers_country" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Senders Name</label>
+                <input type="text" class="form-control" name="senders_name" id="senders_name" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Item Type</label>
+                <input type="text" class="form-control" name="item_type" id="item_type" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Item Weight</label>
+                <input type="text" class="form-control" name="item_weight" id="item_weight" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Parcel Color</label>
+                <input type="text" class="form-control" name="parcel_color" id="parcel_color" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Package Status</label>
+                <input type="text" class="form-control" name="package_status" id="package_status" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Package Content</label>
+                <input type="text" class="form-control" name="package_content" id="package_content" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Dispatch Date</label>
+                <input type="text" class="form-control" name="dispatch_date" id="dispatch-date" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Arrival Country</label>
+                <input type="text" class="form-control" name="arrival_country" id="arrival_country" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Logistic Detail</label>
+            <input type="text" class="form-control" name="logistic_detail" id="logistics_detail" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Checkpoints</label>
+            <input type="text" class="form-control" name="checkpoints" id="checkponts" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Created At</label>
+            <input type="date" class="form-control" name="created_at" id="created_at" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Updated At</label>
+            <input type="date" class="form-control" name="updated_at" id="updated_at" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            
+            <input type="hidden" class="form-control" name="track_code" id="track_code" value="" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+  </div>
+</div>
+
+<h1>Scroll this page to see the effect</h1>
+
+</body>
+<script>
+
+    const allCapsAlpha = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]; 
+    const allLowerAlpha = [..."abcdefghijklmnopqrstuvwxyz"]; 
+    const allNumbers = [..."0123456789"];
+    
+    const base = [...allCapsAlpha, ...allNumbers, ...allLowerAlpha, ];
+    
+    const generator = (base, len) => {
+       return [...Array(len)]
+         .map(i => base[Math.random()*base.length|0])
+         .join('');
+    };
+    
+    console.log('OUTPUT: ', generator(base, 12))
+    document.getElementById('track_code').value = generator(base, 12)
+      </script>
+</html>
+

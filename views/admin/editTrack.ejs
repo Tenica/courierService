@@ -1,0 +1,190 @@
+<%- include('../includes/adminHead.ejs') %>
+
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><%= pageTitle %></a>
+    </div>
+    <ul class="nav navbar-nav">
+    <% if (isAuthenticated) { %>
+      <li class="<%= path === '/dashboard' ? 'active' : '' %>"><a href="dashboard">Dashboard</a></li>
+      <li class="<%= path === '/AddTrack' ? 'active' : '' %>"><a href="AddTrack">Add Track</a></li>
+   <% } %>
+     
+      <!-- <li class="<%= path === '/Edit' ? 'active' : '' %>"><a href="Edit">Edit</a></li> -->
+
+      <% if (!isAuthenticated) { %>
+        <li class="<%= path === '/Login' ? 'active' : '' %>"><a href="Login">Login</a></li>
+
+     <% } else { %>
+      <li>
+    <form action="Logout" method="post">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <button type="submit">Logout</button>
+    </form>
+     </li>
+     <% } %>
+    </ul>
+  </div>
+</nav>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .flex-item-left {
+    background-color: #f1f1f1;
+    padding: 10px;
+    flex: 50%;
+  }
+  
+  .flex-item-right {
+    background-color: dodgerblue;
+    padding: 10px;
+    flex: 50%;
+  }
+  
+  /* Responsive layout - makes a one column-layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+      flex: 100%;
+    }
+  }
+  </style>
+  </head>
+  <body style="height:1500px">
+  
+
+
+  <div>
+    <h1>Responsive Flexbox</h1>
+    
+    <p>In this example, we change the percentage of flex to create different layouts for different screen sizes.</p>
+    <p><b>Resize the browser window to see that the direction changes when the 
+    screen size is 800px wide or smaller.</b></p>
+  </div>
+ 
+  
+  <div class="flex-container">
+    <div class="flex-item-left">
+      <div class="container">
+        <h3><%= pageTitle %></h3>
+        <div>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+            
+             
+              <td><%= tracker.senders_name %></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td><%= tracker.item_type %></td>
+              <td><%= tracker.item_weight %></td>
+              <td><%= tracker.parcel_color %></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td><%= tracker.package_status %></td>
+              <td><%= tracker.package_content %></td>
+              
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td><%= tracker.arrival_country %></td>
+              
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td><%= tracker.created_at%></td>
+           
+              <td><%= tracker.track_code %></td>
+              <td>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <form class="track-form" action="<%= path %>" method="POST">
+            
+              <div class="form-group">
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="receivers_name" id="receivers_name" value="<%= tracker.receivers_name %>" placeholder="Receivers Name">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="receivers_address" id="receivers_address" value="<%= tracker.receivers_address %>" placeholder="Receivers Address">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="receivers_country" id="receivers_country" value="<%= tracker.receivers_country %>" placeholder="receivers_country">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="senders_name" id="senders_name" value="<%= tracker.senders_name %>" placeholder="Senders Name">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="item_type" id="item_type" value="<%= tracker.item_type %>" placeholder="item type">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="item_weight" id="item_weight" value="<%= tracker.item_weight %>" placeholder="item Weight">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="parcel_color" id="parcel_color" value="<%= tracker.parcel_color %>" placeholder="Parcel Color">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="package_status" id="package_status" value="<%= tracker.package_status %>" placeholder="package_status">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="package_content" id="parcel_content" value="<%= tracker.parcel_status %>" placeholder="Parcel Status">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="arrival_country" id="arrival_country" value="<%= tracker.arrival_country %>" placeholder="Arrival Country">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="created_at" id="created_at" value="<%= tracker.created_at %>" placeholder="Created At">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="track_code" id="track_code" value="<%= tracker.track_code %>" placeholder="Track Code">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="dispatch_date" id="dispatch_date" value="<%= tracker.dispatch_date %>" placeholder="Dispatch Date">
+                </div>
+                
+                  <label for="exampleInputEmail1">Logistic Detail</label>
+                  <input type="text" class="form-control" name="logistic_detail" id="logistics_detail" value="<%= tracker.logistic_detail %>" placeholder="logistic details">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Checkpoints</label>
+                  <input type="text" class="form-control" name="checkpoints" id="checkponts" value="<%= tracker.checkpoints %>" placeholder="Checkpoints">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Updated At</label>
+                  <h5>last updated Time = <%= tracker.updated_at %></h5>
+                  <input type="date" class="form-control" name="updated_at" id="updated_at" >
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <input type="hidden" value="<%= tracker._id %>" name="trackerId">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex-item-right">
+      <h4>client-Name</h4>
+      <p><%= tracker.receivers_name %></p> 
+    </div>
+  </div>
+  
+  </body>
+  </html>

@@ -1,0 +1,85 @@
+<%- include('../includes/adminHead.ejs') %>
+
+<body style="height:1500px">
+
+  <%- include('../includes/adminNav.ejs') %>
+
+<div class="container" style="margin-top:50px">
+  <h3>Fixed Navbar</h3>
+  <% if (tracks.length > 0) { %>
+  <div class="row">
+  
+      <% for (let tracker of tracks ) { %>
+        
+    <table class="table table-dark">
+      <thead>
+        
+        <tr>
+
+         
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><%= tracker.receivers_name %></td>
+          <td><%= tracker.receivers_address %></td>
+          <td><%= tracker.senders_name %></td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><%= tracker.item_type %></td>
+          <td><%= tracker.item_weight %></td>
+          <td><%= tracker.parcel_color %></td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td><%= tracker.package_status %></td>
+          <td><%= tracker.package_content %></td>
+          
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td><%= tracker.arrival_country %></td>
+          <td><%= tracker.logistic_detail %></td>
+          <td><%= tracker.checkpoints %></td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td><%= tracker.created_at%></td>
+          <td><%= tracker.updated_at %></td>
+          <td><%= tracker.track_code %></td>
+          <td>
+            <a href="edit/<%= tracker.id %>?edit=true" class="btn btn-primary">Edit</a></td>
+             <td>
+                 <input type="hidden" value="<%= tracker.id %>" name="trackerId">
+                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                 <button class="btn" type="button" onclick="deleteProduct(this)">Delete</button>
+                
+               </form>
+             
+             </td>
+            
+            </form>
+           
+        </tr>
+      </tbody>
+    </table>
+    <% } %>
+  </div>
+</div>
+<% } else { %>
+  <h1>No Products Found!</h1>
+  <% } %>
+
+
+</body>
+</html>
+
+
+<script src="/js/admin.js"></script>

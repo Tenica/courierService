@@ -1,0 +1,61 @@
+<header id="masthead" class="site-header clearfix">
+
+    <div class="header-main clearfix">
+        <div class="container mobile_relative">
+            <div class="row">
+                <div class="site-logo col-md-3 col-sm-6 col-xs-6">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo-light.png" alt="CargoHub" class="logo-light show-logo">
+                        <img src="images/logo.png" alt="CargoHub" class="logo-dark hide-logo">
+                    </a>
+                    <h1 class="site-title"><a href="#"><%= title %></a></h1>
+                    <h2 class="site-description"><%= description %></h2>
+                </div>
+                <div class="site-menu col-md-9 col-sm-6 col-xs-6">
+                    <nav id="site-navigation" class="main-nav primary-nav nav">
+                        <ul class="menu">
+                            <li class="<%= path === '/' ? 'active' : '' %>" ><a href="/" class="dropdown-toggle">Home</a>
+
+                            </li>
+
+                            <li class="<%= path === '/About' ? 'active' : '' %>"><a href="About">About Us</a>
+
+                            </li>
+
+                            <li class="has-children <%= path === '/Services' ? 'active' : '' %>">
+                                <a href="Services" class="dropdown-toggle">Services</a>
+                                <ul class="sub-menu">
+                                    <li  class="<%= path === '/services' ? 'active' : '' %>"><a href="services">All Services</a></li>
+                                    <li  class="<%= path === '/Road-freight' ? 'active' : '' %>"><a href="Road-Freight">Road Freight Forwarding</a></li>
+                                    <li  class="<%= path === '/Ocean-freight' ? 'active' : '' %>"><a href="Ocean-freight">Ocean Freight Forwarding</a></li>
+                                    <li class="<%= path === '/Air-freight' ? 'active' : '' %>" ><a href="Air-freight">Air Freight Forwarding</a></li>
+                                    <li  class="<%= path === '/Warehousing' ? 'active' : '' %>"><a href="Warehousing">Warehousing</a></li>
+                                    <li  class="<%= path === '/Door-to-Door' ? 'active' : '' %>" ><a href="Door-to-Door">Door to Door Delivery</a></li>
+
+                                    <li  class="<%= path === '/Worldwide-Transport' ? 'active' : '' %>"><a href="Worldwide-Transport">Worldwide Transport</a></li>
+                                    <li  class="<%= path === '/Cargo-Service' ? 'active' : '' %>"><a href="Cargo-Service">Cargo Service</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="<%= path === '/Contact' ? 'active' : '' %>"><a href="Contact">Contact</a></li>
+
+                            <li class="<%= path === '/Testimonials' ? 'active' : '' %>"><a href="Testimonials">Testimonials</a></li>
+
+
+                            <li class="extra-menu-item menu-item-button-link <%= path %>">
+                                <a href="Track" class="fh-btn btn">Track Your Shipment</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <a href="#" class="navbar-toggle">
+                <span class="navbar-icon">
+                    <span class="navbars-line"></span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+</header>
